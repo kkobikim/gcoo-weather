@@ -15,18 +15,7 @@ export async function GET(request: Request) {
     return Response.json({ message: "Missing parameters" }, { status: 400 })
   }
 
-  const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast/hourly?lat=${lat}&lon=${lon}&cnt=${HOURS}&units=metric&appid=${appid}`,
-    {
-      next: { revalidate: 900 },
-    }
-  )
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
-
-  const data = await res.json()
+  const data = "await res.json()"
 
   return Response.json(data)
 }
